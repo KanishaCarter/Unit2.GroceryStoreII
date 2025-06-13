@@ -27,6 +27,9 @@ const inventory = [
  */
 function logNames(items) {
   // TODO: use `forEach`
+  items.forEach((item)=>{
+    console.log(item.name);
+  }); 
 }
 
 /**
@@ -35,6 +38,7 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  const upperCased = items.map((item)=> console.log(item.name.toUpperCase()))
 }
 
 /**
@@ -44,7 +48,10 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
-}
+  const foundItem = items.find((item) => {
+      return item.id === id })
+      console.log(foundItem);
+  } 
 
 /**
  * @param {Item[]} items - array of items
@@ -53,6 +60,11 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  for (let item of items) {
+    if (item.name === name){
+      return item.price
+    }
+  }
 }
 
 /**
@@ -61,7 +73,10 @@ function getItemPriceByName(items, name) {
  * @returns {Item[]} array of items that belong to the given `category`
  */
 function getItemsByCategory(items, category) {
-  // TODO: use `filter`
+  // TODO: use `filter` 
+  const result = items.filter(item => item.category === category);
+  console.log(result);
+
 }
 
 /**
@@ -70,6 +85,15 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+
+  const itemQty = 0;
+  const qtyArray = [];
+  items.forEach((item) => {
+    const itemQty = item.quantity;
+    qtyArray.push(itemQty);
+  })
+  const totalQuantity = qtyArray.reduce((accumulator, currentValue)=> accumulator + currentValue, 0);
+  console.log(totalQuantity);
 }
 
 /**
@@ -78,6 +102,14 @@ function countItems(items) {
  */
 function getTotalPrice(items) {
   // TODO: use `reduce`
+  const itemPrice = 0.00;
+  const pricesArray = [];
+  items.forEach((item) => {
+    const itemPrice = item.price;
+    pricesArray.push(itemPrice);
+  })
+  const totalPrice = pricesArray.reduce((accumulator, currentValue)=> accumulator + currentValue, 0.00);
+  console.log(totalPrice);
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
